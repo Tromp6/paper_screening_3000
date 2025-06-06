@@ -161,6 +161,98 @@ ZOT_KEY=your_zotero_api_key
 COLL_OA=your_zotero_collection_id
 ```
 
+### **Customizing Search Queries**
+
+**🔧 All search queries are defined in `queries_config.json`** - you must customize this file for your research topic!
+
+The default configuration is optimized for **LLM security research**, but you can easily adapt it for any systematic review topic.
+
+#### **Query Structure**
+```json
+{
+  "strategic_queries": [
+    {
+      "id": 1,
+      "query": "\"jailbreak\" AND \"large language model\"",
+      "description": "Direct jailbreak techniques for LLMs", 
+      "category": "attack",
+      "expected_focus": "Core jailbreak methodologies and prompt-based exploits"
+    },
+    {
+      "id": 2,
+      "query": "\"prompt injection\" AND \"machine learning\"",
+      "description": "Prompt injection vulnerabilities",
+      "category": "attack", 
+      "expected_focus": "Input validation bypass techniques"
+    }
+  ]
+}
+```
+
+#### **Key Configuration Options**
+
+**Time Range:**
+```json
+"timeframe": {
+  "start_date": "2022-01-01",    // Adjust for your field's relevant period
+  "end_date": "2025-01-01"       // Current date boundary
+}
+```
+
+**Quality Filters:**
+```json
+"quality_criteria": {
+  "min_citations": 5,            // Higher for mature fields, lower for emerging topics
+  "peer_reviewed_only": true,    // Set false to include preprints
+  "exclude_preprints": true      // Set false for cutting-edge research
+}
+```
+
+#### **Example: Medical Research Configuration**
+```json
+{
+  "search_strategy": {
+    "version": "v1.0_medical_intervention",
+    "description": "Systematic review of telemedicine interventions",
+    "timeframe": {
+      "start_date": "2020-01-01",
+      "end_date": "2025-01-01"
+    }
+  },
+  "strategic_queries": [
+    {
+      "id": 1,
+      "query": "\"telemedicine\" AND \"patient outcomes\"",
+      "description": "Telemedicine effectiveness studies",
+      "category": "intervention",
+      "expected_focus": "Clinical outcomes and patient satisfaction"
+    },
+    {
+      "id": 2, 
+      "query": "\"remote consultation\" AND \"healthcare quality\"",
+      "description": "Quality of remote healthcare delivery",
+      "category": "quality",
+      "expected_focus": "Healthcare delivery standards and metrics"
+    }
+  ]
+}
+```
+
+#### **Tips for Effective Query Design**
+
+**✅ Best Practices:**
+- Use 3-8 strategic queries (not too few, not overwhelming)
+- Combine specific terms with broader concepts: `"blockchain" AND "supply chain"`
+- Use quotes for exact phrases: `"machine learning"`
+- Balance breadth vs precision based on your field's maturity
+
+**❌ Common Pitfalls:**
+- Don't use overly complex Boolean logic (AI screening compensates for broad queries)
+- Avoid queries that are too narrow (might miss relevant papers)
+- Don't duplicate concepts across queries (creates unnecessary overlap)
+
+**🎯 The platform handles deduplication automatically**, so slightly overlapping queries are fine!
+
 ### **Search Configuration**
 
 The system uses 8 strategic queries optimized for LLM security research (defined in `queries_config.json`):
