@@ -1,0 +1,47 @@
+{
+  "constants": {
+    "SEARCH_VERSION": "v1.4_2025-01-11_defensive_systems",
+    "SCREENING_VERSION": "v1.0_2025-01-11",
+    "FIXED_END_DATE": "2025-01-01",
+    "DEFAULT_START_DATE": "2022-01-01"
+  },
+  "search_strategy": {
+    "version": "v1.4_2025-01-11_defensive_systems",
+    "description": "Strategic queries for LLM jailbreak techniques and defensive countermeasures",
+    "timeframe": {
+      "start_date": "2022-01-01",
+      "end_date": "2025-01-01"
+    },
+    "quality_criteria": {
+      "min_citations": 5,
+      "peer_reviewed_only": true,
+      "exclude_preprints": true
+    },
+    "methodology": "Query-by-query iterative workflow with balanced attack/defense coverage"
+  },
+  "workflow_config": {
+    "confidence_threshold": 0.7,
+    "ai_screening_model": "gpt-4o",
+    "pause_between_queries": true,
+    "manual_screening_enabled": true,
+    "auto_generate_reports": true
+  },
+  "strategic_queries": [
+    {
+      "id": 1,
+      "query": "\"jailbreak\" AND \"large language model\"",
+      "description": "Direct jailbreak techniques for LLMs",
+      "category": "attack",
+      "expected_focus": "Core jailbreak methodologies and prompt-based exploits"
+    },
+    
+    {
+      "id": 3,
+      "query": "\"adversarial prompt\" AND \"large language model\"",
+      "description": "Adversarial prompting techniques",
+      "category": "attack",
+      "expected_focus": "Adversarial examples and prompt-based attacks"
+    }
+    
+  ]
+} 
